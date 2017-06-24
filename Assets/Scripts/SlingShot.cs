@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SlingShot : MonoBehaviour {
+	static public SlingShot S;
+
 	//fields set in the unity inspector pane
 	public GameObject prefabProjectile;
 	public float velocityMult = 4f;
@@ -14,6 +16,7 @@ public class SlingShot : MonoBehaviour {
 	public bool aimingMode;
 
 	void Awake(){
+		S = this;
 		Transform launchPointTrans = transform.Find ("LaunchPoint");
 		launchPoint = launchPointTrans.gameObject;
 		launchPoint.SetActive (true);
